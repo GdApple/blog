@@ -1,0 +1,14 @@
+---
+layout: nil
+title: sitemap
+---
+
+{{ site.url }}/
+{{ site.url }}/about.html
+
+{{ site.url }}/tags.html
+{{ site.url }}/gh-pages-guide.html
+
+{% for post in site.posts %}
+{{ site.url }}{{ post.url }}
+{% endfor %}

@@ -1,0 +1,7 @@
+# allow-all
+
+Sitemap: {{ site.url }}/sitemap.txt
+Sitemap: {{ site.url }}/sitemap.xml
+
+User-agent: *
+Allow: /

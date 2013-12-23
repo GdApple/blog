@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<link href="{{ site.baseurl }}/favicon.ico" rel="shortcut icon">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="author" content="yhzhtk">
+		<meta name="description" content="Yhzhtk's Blog，记录技术的点点滴滴。托管于github，使用jekyll生成博客，disqus评论，以及其他免费查询，感谢开源带来的方便和高效。">
+		<meta name="keywords" content="Yhzhtk, blog, 博客, 技术">
+		<link href="{{ site.baseurl }}/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="{{ site.baseurl }}/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+		<script type="text/javascript" src="{{ site.baseurl }}/javascripts/google-analytics.js"></script>
+		{% include search.html %}
+		<title>{{ page.title }} - Yhzhtk's Blog</title>
+	</head>
+    <body style="background-image : url({{ site.baseurl }}/images/bg.jpg);">
+		 <div class="container">
+			<div class="site">
+				<div style="width:95%;margin:0px auto;">
+					<div class="header">
+						<br/>
+						<h1 class="title"><a href="{{ site.baseurl }}/" title="首页">{{ site.name }}</a></h1>
+						<div style="font-family:微软雅黑; font-size: 16px">
+							<div style="float:left;text-align:left; vertical-align:center;" >
+								<span>(热爱技术，高效Code)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="{{ site.baseurl }}/archives.html" title="归档列表">归档</a>&nbsp;
+								<a href="{{ site.baseurl }}/tags.html" title="标签列表">标签</a>&nbsp;
+								<a href="https://github.com/Yhzhtk/blog" title="github托管源项目">源码</a>&nbsp;
+								<a href="{{ site.baseurl }}/about.html" title="About me">关于</a>&nbsp;
+							</div>
+							<div style="float:right;text-align:right">
+								<input type="text" id="j_search" class="j_search" style="height:27px;size:30px;line-height:27px;margin:0px;padding;0px;vertical-align:center;" placeholder="站内搜索" required /> 
+								<a target="_blank" href="http://feed.feedsky.com/YhzhtksBlog">
+									<img src="http://yhzhtk.info/images/rss.png" width="23px" height="23px" style="vertical-align:middle;">RSS订阅</img>
+								</a>
+							</div>
+						</div>
+						<br>
+					</div>
+				   <hr/>
+				   <div>
+					   <div class="leftdiv" style="width:75%;float:left;">
+						   <div style="width:96%; font-family:微软雅黑,tahoma,宋体,rockwell,verdana,sans-serif; font-size: 16px;line-height: 32px;">
+							{{ content }}
+						   </div>
+					   </div>
+					   <div class="rightdiv" style="width:25%;float:left;font-family:微软雅黑,tahoma,宋体,rockwell,verdana,sans-serif; font-size: 15px;line-height: 30px; ">
+							<div style="width:90%; margin-left: auto; margin-right: auto;"> 
+								<section>
+									<h4>分类标签</h4>
+									{% for tag in site.tags %}
+										<a href="{{ site.baseurl }}/tags.html#{{ tag[0] }}">{{ tag[0] }}</a><sup>{{ tag[1].size }}</sup>&nbsp;&nbsp;
+									{% endfor %}
+								</section>
+								<section>
+									<h4>最新博文</h4>
+									<ul type="circle">
+										{% for post in site.posts limit:10 %}
+										<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+										{% endfor %}
+									</ul>
+								</section>
+								<section>
+									<h4>最新评论</h4>
+									<script type="text/javascript" src="http://yhzhtk.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=20"></script>
+								</section>
+								<section>
+									<h4>Feed订阅</h4>
+									<center>
+									<div>
+										<a target="_blank" href="http://www.xianguo.com/subscribe.php?url=http://feed.feedsky.com/YhzhtksBlog"><img src="http://img.feedsky.com/images/icon_subshot02_xianguo.gif" border="0" alt="订阅到鲜果"></a>
+										<a target="_blank" href="http://www.zhuaxia.com/add_channel.php?url=http://feed.feedsky.com/YhzhtksBlog"><img src="http://img.feedsky.com/images/icon_subshot02_zhuaxia.gif" border="0" alt="订阅到抓虾"></a>
+										<a target="_blank" href="http://fusion.google.com/add?feedurl=http://feed.feedsky.com/YhzhtksBlog"><img src="http://img.feedsky.com/images/icon_subshot02_google.gif" border="0" alt="google reader"></a>
+										<a target="_blank" href="http://add.my.yahoo.com/rss?url=http://feed.feedsky.com/YhzhtksBlog"><img src="http://img.feedsky.com/images/icon_subshot02_yahoo.gif" border="0" alt="my yahoo"></a>
+										<a target="_blank" href="http://reader.youdao.com/b.do?keyfrom=feedsky&amp;url=http://feed.feedsky.com/YhzhtksBlog"><img src="http://img.feedsky.com/images/icon_subshot02_youdao.gif" border="0" alt="订阅到有道"></a>
+										<a target="_blank" href="http://mail.qq.com/cgi-bin/feed?u=http://feed.feedsky.com/YhzhtksBlog"><img src="http://img.feedsky.com/images/icon_subshot02_qq.gif" border="0" alt="订阅到QQ邮箱"></a>
+										<br/>
+										<a href="http://feed.feedsky.com/YhzhtksBlog" target="_blank"><img border="0" src="http://img.feedsky.com/images/icon_sub_c1s11.gif" alt="feedsky" vspace="2"  style="margin-bottom:3px" >更多订阅</a>
+									</div>
+									</center>
+								</section>
+							</div>
+					   </div>
+				   </div>
+				   <div style="width:80%; margin-left: auto; margin-right: auto; clear:both;">
+					  <hr/>
+					  <span>©2013 <a href="{{ site.baseurl }}/">首页</a>&nbsp;&nbsp; <a href="{{ site.baseurl }}/about.html">关于</a> &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="https://github.com/Yhzhtk">View me on GitHub</a></span>
+					  <span style="float:right"> 
+						Powered by&nbsp;<a target="_blank" href ="http://jekyllrb.com/" title="Jekyll">Jekyll</a> & <a target="_blank" href ="http://twitter.github.io/bootstrap/" title="Bootstrap">Bootstrap</a>
+						<a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/"><img alt="知识共享许可协议" style="border-width:0; vertical-align:center;" src="http://i.creativecommons.org/l/by-nc-sa/2.5/cn/80x15.png" /></a>
+					  </span>
+				   <br/><br/>
+				   </div>
+				 </div>
+			 </div>
+        </div>
+    </body>
+</html>
